@@ -5,8 +5,8 @@ This worker code creates a simple HTTP endpoint for sending emails via the GMail
 It uses an OAuth flow to establish who is sending the emails.  Emails can be sent from
 any 'from' address providing the user is authorised to do so.
 
-Once the OAuth flow has been completed, the resulting token is stored in R2. Another
-token cannot be created without deleting the existing one from R2 manually.
+Once the OAuth flow has been completed by navigating to /setup, the resulting token is stored
+in R2. Another token cannot be created without deleting the existing one from R2 manually.
 
 When the Google acess token expires (after 1 hour?), the refresh token is automatically
 used to create a new access token.
@@ -48,11 +48,12 @@ Still To do
 ===========
 - Add support for Reply-to header (assuming possible)
 - Embedded attachment support
-- Create a route (password protected) to delete existing the OAuth token from R2 so
+- Create a route (password protected) to delete existing the OAuth token from R2 so OAuth
+process can be restarted
 
 Prerequisites
 =============
-- Set Wrangler and login.
+- Setup Wrangler and login to Wrangler.
 - npm installed
 - A Google project with OAuth credentials created.
 Note: Project OAuth cedentials will include a Client ID and Client Secret. Once your worker
