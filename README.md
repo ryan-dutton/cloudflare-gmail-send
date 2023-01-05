@@ -8,7 +8,7 @@ any 'from' address providing the user is authorised to do so.
 Once the OAuth flow has been completed by navigating to /setup, the resulting token is stored
 in R2. Another token cannot be created without deleting the existing one from R2 manually.
 
-When the Google acess token expires (after 1 hour?), the refresh token is automatically
+When the Google access token expires (after 1 hour?), the refresh token is automatically
 used to create a new access token.
 
 The route /send accepts a JSON structure containing the email details. A password
