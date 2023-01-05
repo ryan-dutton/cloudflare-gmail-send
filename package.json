@@ -1,0 +1,16 @@
+{
+  "name": "cloudflare-gmail-send",
+  "version": "0.0.1",
+  "devDependencies": {
+    "wrangler": "^2.6.2"
+  },
+  "private": true,
+  "scripts": {
+    "start": "wrangler dev",
+    "deploy": "wrangler publish"
+  },
+  "dependencies": {
+    "itty-router": "^3.0.8",
+    "mimemessage": "^1.0.5"
+  }
+}

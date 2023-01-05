@@ -1,0 +1,32 @@
+name = "cloudflare-gmail-send"
+main = "src/index.js"
+compatibility_date = "2022-12-20"
+
+[[r2_buckets]]
+binding = 'r2'
+bucket_name = 'cloudflare-gmail-send'
+preview_bucket_name = 'cloudflare-gmail-send-dev'
+
+[vars]
+GOOGLE_CLIENT_ID="your-google-cloud-project-oauth-client-id"
+#GOOGLE_CLIENT_SECRET="" #this should be a secret, not env
+GOOGLE_REDIRECT_URI="http://localhost:8787/auth"
+TOKEN_FILENAME="cloudflare-gmail-send-token.json"
+#PASSWORD="" #this should be a secret, not env
+
+# The necessary secrets are:
+# - GOOGLE_CLIENT_SECRET
+# - PASSWORD
+# Run `echo <VALUE> | wrangler secret put <NAME>` for each of these
+
+[env.production]
+r2_buckets = [
+	{ binding = "r2", bucket_name = "cloudflare-gmail-send" }
+]
+
+[env.production.vars]
+GOOGLE_CLIENT_ID="your-google-cloud-project-oauth-client-id"
+#GOOGLE_CLIENT_SECRET="" #this should be a secret, not env
+GOOGLE_REDIRECT_URI="https://some-clouflare-worker-url/auth"
+TOKEN_FILENAME="cloudflare-gmail-send-token.json"
+#PASSWORD="" #this should be a secret, not env
